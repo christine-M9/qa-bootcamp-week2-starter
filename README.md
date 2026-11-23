@@ -69,3 +69,37 @@ Run these steps in order from a terminal.
 
 - `npm run check`: checks your `.env` and that you can reach the Toolshop API.
 - `npm test`: runs the Playwright tests in `tests/`.
+
+## Day 6: TypeScript basics and profile validator
+
+### `src/ts-basics/`
+One file per topic from the TypeScript tutorial. Run any of them with `npx tsx src/ts-basics/<file>.ts`.
+
+| File | What it shows |
+|---|---|
+| `first-program.ts` | A variable with a type annotation |
+| `tuples.ts` | Fixed length arrays where each position has its own type |
+| `functions.ts` | Typed parameters, a default parameter and a return type |
+| `objects.ts` | Inline object types, `readonly` and an optional property (`name?`) |
+| `type-aliases.ts` | Naming an object shape with `type` so it can be reused |
+| `union-types.ts` | A value that can be a `number` or a `string`, with narrowing |
+| `optional-chaining.ts` | Reading values that might be missing with `?.` |
+
+### `src/profile-validator.ts`
+A typed user profile where `settings` and `settings.notifications` are optional, as they often are in API responses. `isNotified(user)` returns the `notifications` value, or `false` when either field is missing, without any runtime errors. It uses optional chaining (`?.`) and nullish coalescing (`??`).
+
+Run it:
+
+```bash
+npx tsx src/profile-validator.ts
+```
+
+Expected output:
+
+```
+User 1 (alice): notified = true
+User 2 (bob): notified = false
+User 3 (carol): notified = false
+```
+
+Check the types with `npx tsc --noEmit`.
