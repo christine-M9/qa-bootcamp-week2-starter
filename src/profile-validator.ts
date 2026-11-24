@@ -30,13 +30,25 @@ const userWithEmptySettings: UserProfile = {
   settings: {},
 };
 
+// One user who turned notifications off on purpose
+const userWithNotificationsOff: UserProfile = {
+  id: 4,
+  username: 'dave',
+  settings: { notifications: false },
+};
+
 // ?. stops safely when settings is missing.
 // ?? falls back to false when the value is undefined or null.
 function isNotified(user: UserProfile): boolean {
   return user.settings?.notifications ?? false;
 }
 
-const users: UserProfile[] = [userWithNotifications, userWithoutSettings, userWithEmptySettings];
+const users: UserProfile[] = [
+  userWithNotifications,
+  userWithoutSettings,
+  userWithEmptySettings,
+  userWithNotificationsOff,
+];
 
 for (const user of users) {
   console.log(`User ${user.id} (${user.username}): notified = ${isNotified(user)}`);

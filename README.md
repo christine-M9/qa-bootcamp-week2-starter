@@ -86,7 +86,7 @@ One file per topic from the TypeScript tutorial. Run any of them with `npx tsx s
 | `optional-chaining.ts` | Reading values that might be missing with `?.` |
 
 ### `src/profile-validator.ts`
-A typed user profile where `settings` and `settings.notifications` are optional, as they often are in API responses. `isNotified(user)` returns the `notifications` value, or `false` when either field is missing, without any runtime errors. It uses optional chaining (`?.`) and nullish coalescing (`??`).
+A typed user profile where `settings` and `settings.notifications` are optional, as they often are in API responses. `isNotified(user)` returns the `notifications` value, or `false` when either field is missing or notifications is turned off, without any runtime errors. It uses optional chaining (`?.`) and nullish coalescing (`??`).
 
 Run it:
 
@@ -100,6 +100,7 @@ Expected output:
 User 1 (alice): notified = true
 User 2 (bob): notified = false
 User 3 (carol): notified = false
+User 4 (dave): notified = false
 ```
 
 Check the types with `npx tsc --noEmit`.
