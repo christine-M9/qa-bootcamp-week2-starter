@@ -1,9 +1,4 @@
-# Day 8: Which Toolshop tests to automate
-
-These are my 12 Toolshop test cases from Week 1. Each one goes through two gates.
-
-- **Gate one:** can we automate it reliably? Stable data, stable UI, no timing guesses.
-- **Gate two:** is it worth it? How often it runs, what it costs by hand, how stable the page is, what it costs to keep.
+# Day 8: Automation sorting table
 
 | ID | Test case | Gate one: reliable? | Gate two: worth it? | Decision | Reason |
 |---|---|---|---|---|---|
@@ -19,13 +14,3 @@ These are my 12 Toolshop test cases from Week 1. Each one goes through two gates
 | CJ-13 | TS-102 Category only shows that category | Not yet | Yes | **Later** | It was blocked on Day 3 because "Hand Tools" has no checkbox. I need to rewrite the step and find a clear signal that the filter has finished loading. |
 | CJ-14 | TS-102 Search plus category | Not yet | Yes | **Later** | It builds on CJ-13, so it waits for the same fixes. |
 | CJ-15 | TS-102 Search and category with no overlap | Yes | No | **Never** | CJ-12 already covers "0 results" and CJ-13 already covers other categories being hidden. It would add upkeep but find nothing new. |
-
-## Summary
-
-- **Automate now:** 6 cases. Search, sort and the main cart path. Stable, used often, and slow or risky to repeat by hand.
-- **Later:** 5 cases. Each is blocked by an unclear rule or an unclear test step, not by the tool. Automating a guess would only make a fragile test.
-- **Never:** 1 case. It repeats what two other tests already check.
-
-## Note on the site
-
-Week 1 cases ran on the with bugs version of Toolshop. My Playwright tests run on the main site (`practicesoftwaretesting.com`), so the known bugs should not make these tests fail. If a test is pointed at the with bugs site, a failure there is the bug, not a broken test.
