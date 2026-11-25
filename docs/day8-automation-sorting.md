@@ -19,5 +19,3 @@ My 12 Toolshop test cases from Week 1. Each one goes through two gates.
 | CJ-13 | TS-102 Category only shows that category | Not yet | Yes | **Later** | It was blocked on Day 3 because "Hand Tools" has no checkbox. I need to rewrite the step first. I also need a clear sign that the filter has loaded. |
 | CJ-14 | TS-102 Search plus category | Not yet | Yes | **Later** | It builds on CJ-13, so it waits for the same fixes. |
 | CJ-15 | TS-102 Search and category with no overlap | Yes | No | **Never** | CJ-12 already covers "0 results" and CJ-13 already covers other categories being hidden. It would add upkeep but find nothing new. |
-
-**Note on the site:** Week 1 cases ran on the with bugs version of Toolshop. My Playwright tests run on the main site. So the known bugs should not make these tests fail.
