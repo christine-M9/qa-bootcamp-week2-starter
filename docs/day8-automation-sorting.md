@@ -1,5 +1,10 @@
 # Day 8: Automation sorting table
 
+My 12 Toolshop test cases from Week 1. Each one goes through two gates.
+
+- **Gate one:** can we automate it reliably? Stable data, stable UI, no timing guesses.
+- **Gate two:** is it worth it? How often it runs, what it costs by hand, how stable the page is, what it costs to keep.
+
 | ID | Test case | Gate one: reliable? | Gate two: worth it? | Decision | Reason |
 |---|---|---|---|---|---|
 | CJ-10 | TS-101 Search "pliers" shows all matching products | Yes | Yes | **Automate now** | Search is used on every visit and the check is simple: every name contains "pliers". It is already automated from Day 7. |
@@ -14,3 +19,5 @@
 | CJ-13 | TS-102 Category only shows that category | Not yet | Yes | **Later** | It was blocked on Day 3 because "Hand Tools" has no checkbox. I need to rewrite the step and find a clear signal that the filter has finished loading. |
 | CJ-14 | TS-102 Search plus category | Not yet | Yes | **Later** | It builds on CJ-13, so it waits for the same fixes. |
 | CJ-15 | TS-102 Search and category with no overlap | Yes | No | **Never** | CJ-12 already covers "0 results" and CJ-13 already covers other categories being hidden. It would add upkeep but find nothing new. |
+
+**Note on the site:** Week 1 cases ran on the with bugs version of Toolshop. My Playwright tests run on the main site, so the known bugs should not make these tests fail.
