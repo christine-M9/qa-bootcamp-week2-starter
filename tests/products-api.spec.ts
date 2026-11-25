@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// The config base URL points at the UI site, so use the full API address.
+// The full API address.
 const API_URL = 'https://api.practicesoftwaretesting.com';
 
 // A GET to /products returns 200 and a list with at least one product.
