@@ -85,15 +85,15 @@ The optional Cucumber-js scenario is not included. `features/cart.feature` is wr
 ### `src/ts-basics/`
 One file per topic from the TypeScript tutorial. Run any of them with `npx tsx src/ts-basics/<file>.ts`.
 
-| File | What it shows |
-|---|---|
-| `first-program.ts` | A variable with a type annotation |
-| `tuples.ts` | Fixed length arrays where each position has its own type |
-| `functions.ts` | Typed parameters, a default parameter and a return type |
-| `objects.ts` | Inline object types, `readonly` and an optional property (`name?`) |
-| `type-aliases.ts` | Naming an object shape with `type` so it can be reused |
-| `union-types.ts` | A value that can be a `number` or a `string`, with narrowing |
-| `optional-chaining.ts` | Reading values that might be missing with `?.` |
+| File | What it shows | Expected output |
+|---|---|---|
+| `first-program.ts` | A variable with a type annotation | `30` |
+| `tuples.ts` | Fixed length arrays where each position has its own type | `1`, `MOSH`, `Hammer costs 12.58` |
+| `functions.ts` | Typed parameters, a default parameter and a return type | `13000`, `12000` |
+| `objects.ts` | Inline object types, `readonly` and an optional property (`name?`) | `1 Mosh`, `Retiring on Tue Jan 01 2030` |
+| `type-aliases.ts` | Naming an object shape with `type` so it can be reused | `{ id: 1, name: 'Mosh', retire: [Function: retire] }` |
+| `union-types.ts` | A value that can be a `number` or a `string`, with narrowing | `22`, `22`, `23.1` |
+| `optional-chaining.ts` | Reading values that might be missing with `?.` | `undefined`, the current year, `undefined` |
 
 ### `src/profile-validator.ts`
 A typed user profile where `settings` and `settings.notifications` are optional, as they often are in API responses. `isNotified(user)` returns the `notifications` value, or `false` when either field is missing or notifications is turned off, without any runtime errors. It uses optional chaining (`?.`) and nullish coalescing (`??`).

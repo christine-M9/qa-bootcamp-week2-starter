@@ -13,6 +13,7 @@ let employee: {
 };
 
 console.log(employee.id, employee.name);
+// Months start at 0 in JavaScript, so 0 is January.
 employee.retire(new Date(2030, 0, 1));
 
 // employee.id = 2; // error: cannot assign to id because it is readonly
