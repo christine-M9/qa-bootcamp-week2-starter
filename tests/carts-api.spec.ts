@@ -1,6 +1,7 @@
 import { test, expect, APIRequestContext } from '@playwright/test';
 
-test.use({ baseURL: 'https://api.practicesoftwaretesting.com' });
+// The API address, from .env.
+test.use({ baseURL: process.env.TOOLSHOP_API_URL ?? 'https://api.practicesoftwaretesting.com' });
 
 let cartId: string | undefined;
 
