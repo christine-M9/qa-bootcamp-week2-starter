@@ -6,14 +6,14 @@ test('search for pliers returns only pliers', async ({ page }) => {
 
   // Wait for a condition, not a guess: the first products have loaded.
   // Searching before this lets the late home page list replace the results.
-  await page.getByRole('heading', { level: 5, name: /\w/ }).first().waitFor();
+  await expect(page.getByRole('heading', { level: 5, name: /\w/ }).first()).toBeVisible();
 
   // The search box is a textbox labelled Search, not a searchbox role.
   await page.getByRole('textbox', { name: 'Search' }).fill('pliers');
   await page.getByRole('button', { name: 'Search' }).click();
 
   // Wait for the page to confirm the search ran.
-  await page.getByRole('heading', { name: 'Searched for: pliers' }).waitFor();
+  await expect(page.getByRole('heading', { name: 'Searched for: pliers' })).toBeVisible();
 
   // The product names can still be empty for a moment after that, so
   // expect.poll keeps reading them until the check passes or times out.
