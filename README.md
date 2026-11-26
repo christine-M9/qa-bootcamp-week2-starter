@@ -78,6 +78,8 @@ The API tests create their own cart and delete it afterwards, even when a test f
 | `scripts/` | `check.ts`, run by `npm run check`. |
 | `src/` | TypeScript practice files from Day 6. |
 
+The optional Cucumber-js scenario is not included. `features/cart.feature` is written in Gherkin but is not connected to step definitions.
+
 ## Day 6: TypeScript basics and profile validator
 
 ### `src/ts-basics/`
