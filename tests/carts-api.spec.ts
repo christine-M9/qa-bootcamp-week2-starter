@@ -4,7 +4,7 @@ test.use({ baseURL: 'https://api.practicesoftwaretesting.com' });
 
 let cartId: string | undefined;
 
-// Product ids change when the site resets,looking the product up by name.
+// Product ids change when the site resets, looking the product up by name.
 async function findProduct(request: APIRequestContext, name: string) {
   const response = await request.get('/products/search', { params: { q: name } });
   expect(response.status()).toBe(200);
@@ -26,13 +26,13 @@ test.afterEach(async ({ request }) => {
 test('create a cart and add a product', async ({ request }) => {
   const product = await findProduct(request, 'Combination Pliers');
 
-  // empty cart.
+  // Empty cart.
   const created = await request.post('/carts');
   expect(created.status()).toBe(201);
   cartId = (await created.json()).id;
   expect(cartId).toBeTruthy();
 
-  // Than Add 2 Combination Pliers.
+  // Then Add 2 Combination Pliers.
   const added = await request.post(`/carts/${cartId}`, {
     data: { product_id: product.id, quantity: 2 },
   });
