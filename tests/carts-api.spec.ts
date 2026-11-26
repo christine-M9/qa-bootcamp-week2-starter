@@ -17,9 +17,10 @@ async function findProduct(request: APIRequestContext, name: string) {
 // Delete the cart, even if the test failed.
 test.afterEach(async ({ request }) => {
   if (cartId) {
+    // console.log(`Deleting cart ${cartId}`);
     const response = await request.delete(`/carts/${cartId}`);
-    expect(response.status()).toBe(204);
     cartId = undefined;
+    expect(response.status()).toBe(204);
   }
 });
 
@@ -45,6 +46,8 @@ test('create a cart and add a product', async ({ request }) => {
   const cart = await fetched.json();
   expect(cart.id).toBe(cartId);
   expect(cart.cart_items).toHaveLength(1);
+  // Once you uncomment the next line, the test fails. afterEach still deletes the cart.
+  // expect(cart.cart_items[0]).toMatchObject({ quantity: 3 });
   expect(cart.cart_items[0]).toMatchObject({
     quantity: 2,
     product_id: product.id,
