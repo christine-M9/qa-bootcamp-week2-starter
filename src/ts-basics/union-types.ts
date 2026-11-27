@@ -4,12 +4,14 @@ function kgToLbs(weight: number | string): number {
   if (typeof weight === 'number') {
     return weight * 2.2;
   } else {
-    return parseInt(weight) * 2.2;
+    // parseFloat keeps the decimals. parseInt would turn '10.5kg' into 10.
+    return parseFloat(weight) * 2.2;
   }
 }
 
 console.log(kgToLbs(10));
 console.log(kgToLbs('10kg'));
+console.log(kgToLbs('10.5kg'));
 
 // Makes this file its own module so names here do not clash with other files.
 export {};

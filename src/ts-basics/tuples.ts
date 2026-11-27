@@ -4,7 +4,8 @@ let user: [number, string] = [1, 'Mosh'];
 console.log(user[0]); // the number
 console.log(user[1].toUpperCase()); // the string, so string methods work
 
-// Tuples work best with two values. Like a key value pair.
+// A tuple can hold more than two values, as long as each position has a fixed type,
+// for example [id, name, isActive].
 let product: [string, number] = ['Hammer', 12.58];
 console.log(`${product[0]} costs ${product[1]}`);
 
