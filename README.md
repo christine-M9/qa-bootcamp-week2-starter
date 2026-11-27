@@ -34,7 +34,7 @@ cd qa-bootcamp-week2-starter
    npm test
    ```
 
-   You should see `9 passed`.
+   You should see `10 passed`.
 
 ## What the suite tests
 
@@ -49,6 +49,7 @@ cd qa-bootcamp-week2-starter
 | `tests/carts-api.spec.ts` | API | A cart id that does not exist returns 404. |
 | `tests/sortPrice.spec.ts` | UI | **C3 Sort by price.** After choosing "Price (Low - High)", the prices go from cheapest to most expensive. It uses the page object in `pages/ProductListPage.ts`. |
 | `tests/missingQuantity.spec.ts` | API | **C6 Missing quantity.** Adding a product to a cart without a quantity returns 422, with an error on quantity only. The cart stays empty and is deleted afterwards. |
+| `tests/drill/drill.spec.ts` | UI | **Flakiness drill.** Clicking Save on the trainer's page in `tests/drill/index.html` shows "Saved" after a random delay. The test waits for the message with `toHaveText`, not a fixed time. It passed 20 out of 20 runs. |
 
 The API tests create their own cart and delete it afterwards, even when a test fails, so no test depends on another test's data.
 
