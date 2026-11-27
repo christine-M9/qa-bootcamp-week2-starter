@@ -4,13 +4,11 @@ import { Page, Locator } from '@playwright/test';
 export class ProductListPage {
   readonly page: Page;
   readonly sortBox: Locator;
-  readonly productNames: Locator;
   readonly prices: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.sortBox = page.getByRole('combobox', { name: 'sort' });
-    this.productNames = page.getByRole('heading', { level: 5 });
     // A price looks like $14.15.
     this.prices = page.getByText(/^\$\d+\.\d{2}$/);
   }

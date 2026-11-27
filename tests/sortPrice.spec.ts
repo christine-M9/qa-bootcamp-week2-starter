@@ -10,8 +10,9 @@ test('C3 Sort by price', async ({ page }) => {
   const productList = new ProductListPage(page);
   await productList.open();
 
-  // Wait for the products to load before sorting.
-  await expect(productList.productNames.first()).toBeVisible();
+  // Wait for the first price before sorting. The names show up earlier, and
+  // sorting then lets the late default list replace the sorted one.
+  await expect(productList.prices.first()).toBeVisible();
 
   await productList.sortBy('Price (Low - High)');
 
