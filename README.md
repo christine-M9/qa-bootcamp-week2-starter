@@ -48,7 +48,7 @@ cd qa-bootcamp-week2-starter
 | `tests/carts-api.spec.ts` | API | Creating a cart and adding 2 Combination Pliers returns the right fields. |
 | `tests/carts-api.spec.ts` | API | A cart id that does not exist returns 404. |
 | `tests/sort.spec.ts` | UI | **C3 Sort by price.** After choosing "Price (Low - High)", the prices go from cheapest to most expensive. It uses the page object in `pages/ProductListPage.ts`. |
-| `tests/c6-cart-missing-quantity-api.spec.ts` | API | **C6 Missing quantity.** Adding a product to a cart without a quantity returns 422, with an error on quantity only. The cart stays empty and is deleted afterwards. |
+| `tests/missingQuantity.spec.ts` | API | **C6 Missing quantity.** Adding a product to a cart without a quantity returns 422, with an error on quantity only. The cart stays empty and is deleted afterwards. |
 
 The API tests create their own cart and delete it afterwards, even when a test fails, so no test depends on another test's data.
 
