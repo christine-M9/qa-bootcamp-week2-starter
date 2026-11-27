@@ -21,17 +21,22 @@ async function findProductId(request: APIRequestContext, name: string) {
 test.afterEach(async ({ request }) => {
   if (cartId) {
     const response = await request.delete(`/carts/${cartId}`);
-    cartId = undefined;
     expect(response.status()).toBe(204);
+
+    // Prove the cart is gone.
+    const check = await request.get(`/carts/${cartId}`);
+    cartId = undefined;
+    expect(check.status()).toBe(404);
   }
 });
 
 test('C6 Missing quantity', async ({ request }) => {
   const productId = await findProductId(request, 'Combination Pliers');
 
+  // Save the id first, so the cart is deleted even if the next check fails.
   const created = await request.post('/carts');
-  expect(created.status()).toBe(201);
   cartId = (await created.json()).id;
+  expect(created.status()).toBe(201);
 
   // Add the product without a quantity.
   const added = await request.post(`/carts/${cartId}`, { data: { product_id: productId } });
@@ -42,5 +47,6 @@ test('C6 Missing quantity', async ({ request }) => {
 
   // Nothing was added to the cart.
   const cart = await request.get(`/carts/${cartId}`);
+  expect(cart.status()).toBe(200);
   expect((await cart.json()).cart_items).toEqual([]);
 });
