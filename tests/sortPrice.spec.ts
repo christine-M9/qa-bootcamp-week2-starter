@@ -15,7 +15,6 @@ test('C3 Sort by price', async ({ page }) => {
 
   await productList.sortBy('Price (Low - High)');
 
-  // The list refreshes after sorting, so keep reading until it passes.
   // An empty list would count as sorted, so it must show more than one price.
   await expect
     .poll(
